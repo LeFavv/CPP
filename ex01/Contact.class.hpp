@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:50:57 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/06 17:16:13 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/06 18:08:11 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ public:
 
 	Contact(void);
 	~Contact(void);
+	void	FillContact(void);
 	
 private:
 	std::string FirstName;
