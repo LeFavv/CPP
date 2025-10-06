@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:42:59 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/06 15:36:32 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/06 17:35:14 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ public:
 
 	PhoneBook(void);
 	~PhoneBook(void);
+	int	Index(void);
+	
 private:
 	Contact list[8];
 	int	NbContacts;
