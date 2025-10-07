@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:56:08 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 12:24:00 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 15:13:39 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ int ft_is_alpha(std::string str)
             return 0;
     }
     return 1;
+}
+
+int ft_is_num(std::string str)
+{
+    for (int i = 0; str[i]; i++)
+    {
+        if (!(str[i] >= '0' && str[i] <= '9'))
+            return (0);
+    }
+    return (1);
 }
 
 int main(void)
@@ -46,10 +56,9 @@ int main(void)
             book.AddContact();
         else if (strcmp(input.c_str(), "SEARCH") == 0)
         {
-            book.PrintAllContacts();
-            
+            if  (!book.PrintAllContacts())
+                return (std::cout << "Bye !" << std::endl, 0);
         }
-            
     }
     return (0);
 }

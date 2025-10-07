@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:04:59 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 12:23:40 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:31:24 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 #include <string>
 
 int ft_is_alpha(std::string str);
+int ft_is_num(std::string str);
 
 #endif

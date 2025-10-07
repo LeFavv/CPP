@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:52:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 14:08:27 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 15:28:22 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int Contact::FillContact(void)
 	std::cout << "[Last Name] : ";
 	while (_LastName.empty() || !ft_is_alpha(_LastName))
 	{
+		std::getline(std::cin, _LastName);
 		if (!ft_is_alpha(_LastName))
 		{
 			std::cout << "You have to type only alphabeticals caracteres" << std::endl;
 			std::cout << "[Last Name] : ";
 		}
-		std::getline(std::cin, _LastName);
 		if (std::cin.eof())
 			return 0;
 	}
@@ -53,9 +53,19 @@ int Contact::FillContact(void)
 			return 0;
 	}
 	std::cout << "[Phone Number] : ";
-	while (_PhoneNbr.empty())
+	while (_PhoneNbr.empty() || !ft_is_num(_PhoneNbr) || _PhoneNbr.size() < 4)
 	{
 		std::getline(std::cin, _PhoneNbr);
+		if (!ft_is_num(_PhoneNbr))
+		{
+			std::cout << "Only numerics values" << std::endl;
+			std::cout << "[Phone Number] : ";
+		}
+		if (_PhoneNbr.size() < 4)
+		{
+			std::cout << "A Phone Number with less than 4 numbers ?! Doesnt make sense" << std::endl;
+			std::cout << "[Phone Number] : ";
+		}
 		if (std::cin.eof())
 			return 0;
 	}
@@ -73,11 +83,32 @@ std::string Contact::MyStr(std::string str)
 {
 	std::string NewStr;
 	
-	
+	if (str.size() > 10)
+	{
+		NewStr = str.substr(0, 9) + ".";
+	}
+	else
+	{
+		NewStr = str;
+		while (NewStr.size() < 10)
+		{
+			NewStr = ' ' + NewStr;
+		}
+	}
+	return (NewStr);
 }
 
-//implementer le fait de mettre un point si ligne > 10
 void	Contact::Print(int i)
 {
-	
+	std::cout << i + 1 << " | " << MyStr(_FirstName) << " | "
+		 << MyStr(_LastName) << " | " << MyStr(_NickName) << std::endl;
+}
+
+void	Contact::PrintIndex(void)
+{
+	std::cout << "[First Name] = " << _FirstName << std::endl;
+	std::cout << "[Last Name] = " << _LastName << std::endl;
+	std::cout << "[Nick Name] = " << _NickName << std::endl;
+	std::cout << "[Phone Number] = " << _PhoneNbr << std::endl;
+	std::cout << "[Darkest Secret 👀] = " << _DarkestSecret << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:42:59 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 11:58:58 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:27:48 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	void AddContact(void);
 	void SetNbContact(void);
 	int	GetNbContact(void);
-	void PrintAllContacts(void);
+	int PrintAllContacts(void);
 	void SetFlag(void);
 	
 private:

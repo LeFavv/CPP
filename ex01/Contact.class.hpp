@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:50:57 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 14:07:10 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:42:48 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	~Contact(void);
 	int	FillContact(void);
 	void Print(int i);
+	void PrintIndex(void);
 	std::string MyStr(std::string str);
 	
 private:
