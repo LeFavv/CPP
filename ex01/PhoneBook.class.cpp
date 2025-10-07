@@ -6,13 +6,14 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:49 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 11:53:33 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:05:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 #include "Contact.class.hpp"
 #include <iostream>
+#include "main.hpp"
 
 PhoneBook::PhoneBook(void){};
 
@@ -45,6 +46,12 @@ void    PhoneBook::PrintAllContacts(void){
     }
     for (int i = 0; i < NbContacts; i++)
     {
-        list[i].Print();
+        // std::cout << i << " | "<< std::ends;
+        list[i].Print(i);
     }
+}
+
+void    PhoneBook::SetFlag(void){
+    flag = 0;
+    return;
 }

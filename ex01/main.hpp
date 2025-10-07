@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 14:50:57 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 14:07:10 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/07 12:04:59 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/07 12:23:40 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef MAIN_H
+# define MAIN_H
+
+#include <cstring>
+#include <iostream>
+#include <cctype>
 #include <string>
 
-
-class   Contact{
-
-public:
-
-	Contact(void);
-	~Contact(void);
-	int	FillContact(void);
-	void Print(int i);
-	std::string MyStr(std::string str);
-	
-private:
-	std::string _FirstName;
-	std::string	_LastName;
-	std::string _NickName;
-	std::string _PhoneNbr;
-	std::string	_DarkestSecret;
-};
+int ft_is_alpha(std::string str);
 
 #endif
