@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 00:27:25 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/09 00:36:58 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/09 01:42:58 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,12 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = megaphone
-
+		
 FILE =	megaphone.cpp
+
+RED = \033[0;31m
+GREEN = \033[0;32m
+
 
 SRC = ${FILE:.c=.o}
 
@@ -24,6 +28,7 @@ all : ${NAME}
 	
 ${NAME}: ${SRC}
 	@${CC} ${CFLAGS} -o $@ $^
+	@echo "$(GREEN)😀Compilation terminee😀$(GREEN)"
 
 
 %.o:%.c
@@ -31,11 +36,11 @@ ${NAME}: ${SRC}
 
 clean:
 	@rm -f megaphone.o
-	@echo "test1"
+	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean
 	@rm -f megaphone
-	@echo "test2"
+	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
 re: fclean
 	@make

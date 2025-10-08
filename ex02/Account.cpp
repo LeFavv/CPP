@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:17:19 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/09 00:47:04 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/09 01:30:55 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ int	Account::getNbWithdrawals(void)
     return (_totalNbWithdrawals);
 }
 
+//Affiche pour tout
 void	Account::displayAccountsInfos(void)
 {
-    std::cout << "Index = " << _nbAccounts << std::endl;
+    
 }
 
+//affiche pour chaque index
 void    Account::displayStatus(void)const
 {
 
