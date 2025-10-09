@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:17:19 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/09 01:30:55 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/09 02:11:34 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account(void){};
 
-Account::~Account(void){};
+Account::~Account(void){}; //close
 
 Account::Account(int initial_deposit)
 {
-        
+        //open
 }
 int	Account::getNbAccounts(void)
 {
@@ -66,11 +65,11 @@ void    Account::makeDeposit(int deposit)
 
 bool    Account::makeWithdrawal(int withdrawal)
 {
-
+//check si on peut faire le retrait si on veut pas prendre plus que amount
 }
 
 int Account::checkAmount(void)const
 {
-    
+    return (_amount);
 }
 
