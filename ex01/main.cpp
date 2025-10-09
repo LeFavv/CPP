@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:56:08 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 15:13:39 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:59:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 int ft_is_alpha(std::string str)
 {
     for (int i = 0; str[i]; i++){
-        if (!(str[i] >= 'a' && str[i] <= 'z'
-            || str[i] >= 'A' && str[i] <= 'Z'))
+        if (!((str[i] >= 'a' && str[i] <= 'z')
+            || (str[i] >= 'A' && str[i] <= 'Z')))
             return 0;
     }
     return 1;

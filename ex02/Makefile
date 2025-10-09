@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/09 00:27:25 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/09 12:03:40 by vafavard         ###   ########.fr        #
+#    Created: 2025/10/09 12:04:16 by vafavard          #+#    #+#              #
+#    Updated: 2025/10/09 12:05:21 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = megaphone
+NAME = GlobalBanksters
 		
-FILE =	megaphone.cpp
+FILE =	Account.cpp tests.cpp
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -35,11 +35,11 @@ ${NAME}: ${SRC}
 	@${CC} ${CFLAGS} -c $^
 
 clean:
-	@rm -f megaphone.o
+	@rm -f Account.o tests.o
 	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean
-	@rm -f megaphone
+	@rm -f GlobalBanksters
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
 re: fclean
