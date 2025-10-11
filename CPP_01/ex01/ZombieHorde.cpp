@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 18:36:11 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/10 18:47:54 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/11 16:45:38 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,13 @@ Zombie* zombieHorde( int N, std::string name )
     }
     return (horde);
 }
+
+// int main() {
+//     try {
+//         int* p = new int[100000000000000]; // allocation impossible
+//     }
+//     catch (const std::bad_alloc& e) {
+//         std::cerr << "Erreur : " << e.what() << '\n';
+//     }
+// }
+//a voir si c'est utile ou non
