@@ -15,6 +15,14 @@
 Zombie* zombieHorde( int N, std::string name )
 {
     if (N <= 0)
+    {
+        //mettre un message 
         return (NULL);
-    Zombie horde = new Zombie[N](name);
+    }
+    Zombie* horde = new Zombie[N]; //faut il check si l'alloc avec new fail ???
+    for (int i = 1; i <= N; i++)
+    {
+       horde[i - 1].set_name_index(i, name);
+    }
+    return (horde);
 }

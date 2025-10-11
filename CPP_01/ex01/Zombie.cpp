@@ -12,6 +12,31 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name){};
+// Zombie::Zombie(int N, std::string name)
+// {
+//     this->_index = N;
+//     this->_name = name;
+//     std::cout << this->_name << this->_index << ": "<< std::ends;
+//     std::cout << "Braiiiiiiinz..." << std::endl;
+// };
 
-Zombie::~Zombie(void){};
+void    Zombie::annouce(void)
+{
+    std::cout << this->_name << this->_index << ": "<< std::ends;
+    std::cout << "Braiiiiiiinz..." << std::endl;
+}
+
+void    Zombie::set_name_index(int i, std::string name)
+{
+    this->_name = name;
+    this->_index = i;
+    annouce();
+}
+
+Zombie::~Zombie(void)
+{
+    std::cout << this->_name << this->_index << ": "<< std::ends;
+    std::cout << "died" << std::endl;
+};
+
+Zombie::Zombie(void){};

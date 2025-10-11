@@ -19,11 +19,15 @@
 class Zombie
 {
 public:
-        Zombie(std::string name);
+        Zombie(void);
+        // Zombie(int N, std::string name);
         ~Zombie(void);
+        void    set_name_index(int i, std::string name);
+        void    annouce(void);
         
 private:
         std::string _name; 
+        int     _index;
 };
 
 Zombie* zombieHorde( int N, std::string name );

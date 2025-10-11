@@ -10,3 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+int main(void)
+{
+    Zombie *test = zombieHorde(5, "Bernadette");
+    delete [] test;
+    return (0);
+}
