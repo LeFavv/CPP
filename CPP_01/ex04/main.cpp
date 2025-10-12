@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 15:06:16 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/12 16:03:33 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/12 18:58:11 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/12 20:31:31 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,74 @@
 #include <fstream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
 
-//my bad ne pas creer le fichier a la base mais seulement open
-//seulement le fichier .replace doit etre creer
-//std::strinh::find
-//std::string::substr
-//std::ifstream pour ouvrir le fichier 
-//std::getline pour recuperer les lignes
-//std::ofstream pour ecrire dans un nouveau fichier
 
 int main(int argc, char **argv)
 {
-    std::ofstream outfile (argv[1]);
 
-    std::string test1 = argv[1];
-    std::string test2 = ".replace";
-    std::string test3 = test1 + test2;
-    std::ofstream test (test3);
+    if (argc != 4)
+    {
+        std::cout << "<filename> <s1> <s2>" << std::endl;
+        return (EXIT_FAILURE);
+    }
+    std::string buffer;
+    std::ifstream infile;
+    std::ofstream outfile;
     
-    outfile << "ceci est un test" << std::endl;
-    outfile.close();
+    std::string filename = (std::string)argv[1] + ".replace";
     
-    std::ifstream infile (argv[1]);
-    
-    test << infile.rdbuf();
-
+    infile.open(argv[1]);
+    if (infile.is_open() == true)
+    {
+        outfile.open(filename.c_str(), std::ios::out);
+        if (outfile.is_open() == true)
+        {
+            while (std::getline(infile, buffer))
+            {
+                if (buffer.find(argv[2]) != std::string::npos)
+                {
+                    int i = 0;
+                    int j = 0;
+                    std::string temp;
+                    while (i <  buffer.find(argv[2]))
+                        i++;
+                    while(j < i)
+                    {
+                        temp += buffer[j];
+                        j++;
+                    }
+                    
+                    temp += (std::string)argv[3];
+                    std::string find_size = argv[3];
+                    std::string to_find = argv[2];
+                    j += find_size.size(); 
+                    i += to_find.size();
+                    while (buffer[i])
+                    {
+                        temp += buffer[i];
+                        i++;
+                        j++;
+                    }
+                    buffer = temp;
+                }
+                outfile << buffer << "\n";
+            }
+        }
+        else
+        {
+            outfile.close();
+            std::perror("outfile error\n");
+            return (EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        std::perror("infile error\n");
+        return (EXIT_FAILURE);
+    }
     infile.close();
-    test.close();
-    
-    return 0;
+    outfile.close();
+    return (EXIT_SUCCESS);
     
 }
