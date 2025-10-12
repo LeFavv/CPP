@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 17:08:53 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/10 17:31:17 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/12 15:06:16 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/12 15:31:32 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-
+#include <iostream>
+#include <cstring>
+#include <fstream>
 #include <string>
+#include <cctype>
 
-class Zombie
+int main(int argc, char **argv)
 {
-public:
-        Zombie(std::string s);
-        ~Zombie(void);
-       void announce( void );
-       void randomChump( std::string name );
-        Zombie* newZombie( std::string name );
-        
-private:
-        std::string _name; 
-};
+    std::ofstream outfile (argv[1]);
 
-#endif
+    std::ofstream test;
+    // std::string test = strcat(outfile.c_str(), ".replace");
+    outfile << "ceci est un test" << std::endl;
+    test << outfile.rdbuf();
+    // std::cout << test ;
+    outfile.close();
+    test.close();
+    
+    return 0;
+    
+}
