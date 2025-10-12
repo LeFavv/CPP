@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 09:33:41 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/12 10:23:56 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/12 10:49:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 private:
         std::string _name;
         Weapon *_weapon;
+        bool    _isArmed;
 };
 
 #endif
