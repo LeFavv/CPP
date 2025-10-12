@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 18:58:11 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/12 20:31:31 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/12 22:20:58 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,5 @@ int main(int argc, char **argv)
     }
     infile.close();
     outfile.close();
-    return (EXIT_SUCCESS);
-    
+    return (EXIT_SUCCESS);   
 }

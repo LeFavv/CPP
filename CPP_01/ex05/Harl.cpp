@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 21:10:00 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/12 21:45:46 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/12 22:20:34 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ void Harl::complain(std::string level)
     {
         if (index[i] == level)
             (this->*functionPTR[i])();
-        // std::cout << index[i] << std::endl;
     }
 }
