@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:48:47 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/13 17:28:56 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/13 19:10:04 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
         ~Fixed(void);
         float toFloat(void)const;
         int    toInt(void)const;
-        Fixed &operator=(Fixed const & src);
+        Fixed &operator=(Fixed const &src);
         int getRawBits(void) const;
         void setRawBits(int const raw);
 private:
