@@ -5,37 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 12:41:51 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/13 17:31:44 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/13 17:02:14 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/13 17:33:37 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int const Fixed::_bits = 8;
-
-Fixed::Fixed(void): _value(0){};
-
-Fixed::Fixed(Fixed const & src)
-{
-    *this = src;
-}
-
-Fixed::~Fixed(void){};
-
-Fixed & Fixed::operator=(Fixed const & rhs)
-{
-    if (this != &rhs)
-        this->_value = rhs.getRawBits();
-    return *this;
-}
-
-void Fixed::setRawBits( int const raw )
-{
-    this->_value = raw;
-}
-
-int Fixed::getRawBits(void)const
-{
-    return (this->_value);
-}
