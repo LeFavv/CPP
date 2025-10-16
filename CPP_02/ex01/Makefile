@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 10:31:19 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/16 10:32:07 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/16 10:38:55 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = NWCT
+NAME = UtileClass
 		
 FILE =	main.cpp Fixed.cpp
 
@@ -39,7 +39,7 @@ clean:
 	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean
-	@rm -f NWCT
+	@rm -f UtileClass
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
 re: fclean
