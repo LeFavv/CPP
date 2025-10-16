@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:47 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 12:19:06 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:54:07 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ public:
         int    toInt(void)const;
         int getRawBits(void) const;
         void setRawBits(int const raw);
+
         //operateurs arithmetiques
         Fixed   operator+(Fixed const &fixed);
         Fixed   operator-(Fixed const &fixed);
         Fixed   operator*(Fixed const &fixed);
         Fixed   operator/(Fixed const &fixed);
+
         //operateurs de comparaison
         bool   operator>(Fixed const &other)const;
         bool   operator<(Fixed const &other)const;
@@ -43,19 +45,20 @@ public:
         bool   operator<=(Fixed const &other)const;
         bool   operator==(Fixed const &other)const;
         bool   operator!=(Fixed const &other)const;
+        
         //operateurs d'incrementation
-        Fixed   &operator++(); //pre-increment _value++ return *this
-        Fixed   operator++(int); //post-increment
-        //Fixed temp = *this;
-        //++_value;
-        //return temp;
-        Fixed   &operator--(); //pre-decrement (meme process que pour ++ i guess)
-        Fixed   operator--(int);//post-decrement
-        //Fixed temp = *this;
-        //--_value
-        //return temp;
+        Fixed   &operator++();
+        Fixed   operator++(int);
+        Fixed   &operator--();
+        Fixed   operator--(int);
         
+        //min et max
+        static Fixed &min(Fixed &fixed1, Fixed &fixed2);
+        static const Fixed &min(Fixed const &fixed1, Fixed const &fixed2);
         
+        static Fixed &max(Fixed &fixed1, Fixed &fixed2);
+        static const Fixed &max(Fixed const &fixed1, Fixed const &fixed2);
+
 private:
         int _value;
         static int const _bits;

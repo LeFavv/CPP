@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 12:44:26 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:59:11 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,34 @@ Fixed   Fixed::operator--(int) //post-decrement
     Fixed temp = *this;
     --_value;
     return temp;
+}
+
+Fixed &Fixed::min(Fixed &fixed1, Fixed &fixed2)
+{
+    if (fixed1.toFloat() < fixed2.toFloat())
+        return (fixed1);
+    return fixed2;
+}
+
+Fixed const &Fixed::min(Fixed const &fixed1, Fixed const &fixed2)
+{
+    if (fixed1.toFloat() < fixed2.toFloat())
+        return (fixed1);
+    return fixed2;
+}
+
+Fixed &Fixed::max(Fixed &fixed1, Fixed &fixed2)
+{
+    if (fixed1.toFloat() > fixed2.toFloat())
+        return (fixed1);
+    return fixed2;
+}
+
+Fixed const &Fixed::max(Fixed const &fixed1, Fixed const &fixed2)
+{
+    if (fixed1.toFloat() > fixed2.toFloat())
+        return (fixed1);
+    return fixed2;
 }
 
 std::ostream &operator<<(std::ostream& o, Fixed const& fixed)
