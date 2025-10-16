@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 12:18:22 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:38:36 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,37 @@ Fixed   Fixed::operator/(Fixed const &fixed)
 {
     return Fixed(toFloat() / fixed.toFloat());
 }
+
+bool    Fixed::operator>(Fixed const &other)const
+{
+    return (toFloat() > other.toFloat());
+}
+
+bool    Fixed::operator<(Fixed const &other)const
+{
+    return (toFloat() < other.toFloat());
+}
+
+bool    Fixed::operator>=(Fixed const &other)const
+{
+    return (toFloat() >= other.toFloat());
+}
+
+bool    Fixed::operator<=(Fixed const &other)const
+{
+    return (toFloat() <= other.toFloat());
+}
+
+bool    Fixed::operator==(Fixed const &other)const
+{
+    return (toFloat() == other.toFloat());
+}
+
+bool    Fixed::operator!=(Fixed const &other)const
+{
+    return (toFloat() != other.toFloat());
+}
+
 
 std::ostream &operator<<(std::ostream& o, Fixed const& fixed)
 {
