@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 12:38:36 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:44:26 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,31 @@ bool    Fixed::operator!=(Fixed const &other)const
     return (toFloat() != other.toFloat());
 }
 
+Fixed   &Fixed::operator++() //pre-increment
+{
+    ++_value;
+    return *this;
+}
+
+Fixed   Fixed::operator++(int) //post-increment
+{
+    Fixed   temp = *this;
+    ++_value;
+    return temp;
+}
+
+Fixed   &Fixed::operator--() //pre-decrement
+{
+    --_value;
+    return *this;
+}
+
+Fixed   Fixed::operator--(int) //post-decrement
+{
+    Fixed temp = *this;
+    --_value;
+    return temp;
+}
 
 std::ostream &operator<<(std::ostream& o, Fixed const& fixed)
 {
