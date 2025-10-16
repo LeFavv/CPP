@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:47 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 11:59:46 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:11:52 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ public:
         Fixed   operator+(Fixed const &fixed);
         Fixed   operator-(Fixed const &fixed);
         Fixed   operator*(Fixed const &fixed);
-        Fixed   operator-(Fixed const &fixed);
+        Fixed   operator/(Fixed const &fixed);
         //operateurs de comparaison
-        bool   operator>(Fixed const &other)const;
-        bool   operator<(Fixed const &other)const;
-        bool   operator>=(Fixed const &other)const;
-        bool   operator<=(Fixed const &other)const;
-        bool   operator==(Fixed const &other)const;
-        bool   operator!=(Fixed const &other)const;
+        // bool   operator>(Fixed const &other)const;
+        // bool   operator<(Fixed const &other)const;
+        // bool   operator>=(Fixed const &other)const;
+        // bool   operator<=(Fixed const &other)const;
+        // bool   operator==(Fixed const &other)const;
+        // bool   operator!=(Fixed const &other)const;
         //operateurs d'incrementation
         Fixed   &operator++(); //pre-increment _value++ return *this
         Fixed   operator++(int); //post-increment

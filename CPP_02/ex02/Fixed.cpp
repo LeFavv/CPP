@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 10:47:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/16 12:05:41 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 12:18:22 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int const Fixed::_bits = 8;
 
-Fixed::Fixed(void){};
+Fixed::Fixed(void)
+{
+    setRawBits(0); // init de base
+}
 
 Fixed::Fixed(int const input)
 {
@@ -58,6 +61,26 @@ int     Fixed::getRawBits(void)const
 void   Fixed::setRawBits(int const raw)
 {
     this->_value = raw;
+}
+
+Fixed   Fixed::operator+(Fixed const &fixed)
+{
+    return Fixed(toFloat() + fixed.toFloat());
+}
+
+Fixed   Fixed::operator-(Fixed const &fixed)
+{
+    return Fixed(toFloat() - fixed.toFloat());
+}
+
+Fixed   Fixed::operator*(Fixed const &fixed)
+{
+    return Fixed(toFloat() * fixed.toFloat());
+}
+
+Fixed   Fixed::operator/(Fixed const &fixed)
+{
+    return Fixed(toFloat() / fixed.toFloat());
 }
 
 std::ostream &operator<<(std::ostream& o, Fixed const& fixed)
