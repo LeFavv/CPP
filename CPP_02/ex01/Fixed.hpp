@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:48:47 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/13 19:10:04 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/16 10:04:55 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
         int getRawBits(void) const;
         void setRawBits(int const raw);
 private:
-        int _valueInt;
+        int _value;
         static int const _bits;
 };
 
