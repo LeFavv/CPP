@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:32:49 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 14:01:49 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/17 13:54:46 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ public:
         void    attack(const std::string& target);
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
-private:
+        
+protected:
         std::string _name;
         int _HitPoint;
         int _EnergyPoint;
