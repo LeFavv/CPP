@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 10:32:51 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 18:24:57 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/17 13:13:05 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/17 14:01:10 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main()
+class ScavTrap: public ClapTrap
 {
-    ClapTrap Bernard("Bernard");
-    ScavTrap Valentin("Valentin");
-    ScavTrap Test;
-    Test = Valentin;
+public:
+        ScavTrap(void);
+        ScavTrap(std::string const &name);
+        ScavTrap(ScavTrap const &copy);
+        ~ScavTrap(void);
+        ScavTrap &operator=(ScavTrap const &src);
+        
+        void    guardGate(void);
+        void    attack(const std::string& target);
 
-    Valentin.attack("PAC ");
-    Test.attack("PAC ");
-    Valentin.guardGate();
-    Test.guardGate();
-    Bernard.beRepaired(50);
-    Bernard.takeDamage(60);
-    Bernard.attack("Someone");
-    return (0);
-}
+private:
+        bool    _guarding;    
+};

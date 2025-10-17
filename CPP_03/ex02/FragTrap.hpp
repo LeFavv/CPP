@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 10:32:51 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 18:24:57 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/17 18:29:36 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/17 18:34:16 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main()
+class FragTrap : public ClapTrap
 {
-    ClapTrap Bernard("Bernard");
-    ScavTrap Valentin("Valentin");
-    ScavTrap Test;
-    Test = Valentin;
+public:
+        FragTrap(void);
+        FragTrap(std::string const &name);
+        FragTrap(FragTrap const &copy);
+        ~FragTrap(void);
+        FragTrap &operator=(FragTrap const &src);
+        
+        void    highFivesGuys(void);
+private:
+        bool    _hf;
+};
 
-    Valentin.attack("PAC ");
-    Test.attack("PAC ");
-    Valentin.guardGate();
-    Test.guardGate();
-    Bernard.beRepaired(50);
-    Bernard.takeDamage(60);
-    Bernard.attack("Someone");
-    return (0);
-}
+#endif
