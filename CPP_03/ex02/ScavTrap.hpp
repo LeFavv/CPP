@@ -6,9 +6,12 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:13:05 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 14:01:10 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/18 11:10:40 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -27,3 +30,5 @@ public:
 private:
         bool    _guarding;    
 };
+
+#endif
