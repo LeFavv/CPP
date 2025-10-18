@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:29:36 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 18:57:07 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/18 10:27:51 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
         FragTrap(void);

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 18:29:36 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/17 18:57:07 by vafavard         ###   ########.fr       */
+/*   Created: 2025/10/17 13:13:05 by vafavard          #+#    #+#             */
+/*   Updated: 2025/10/18 11:01:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 public:
-        FragTrap(void);
-        FragTrap(std::string const &name);
-        FragTrap(FragTrap const &copy);
-        ~FragTrap(void);
-        FragTrap &operator=(FragTrap const &src);
+        ScavTrap(void);
+        ScavTrap(std::string const &name);
+        ScavTrap(ScavTrap const &copy);
+        ~ScavTrap(void);
+        ScavTrap &operator=(ScavTrap const &src);
         
-        void    highFivesGuys(void);
+        void    guardGate(void);
+        void    attack(const std::string& target);
+
 private:
-        bool    _hf; //peut etre pas necessaire d'avoir ca 
+        bool    _guarding;    
 };
 
 #endif
