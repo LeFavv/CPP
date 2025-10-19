@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 10:31:19 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/16 10:38:55 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/19 16:22:01 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,4 @@ fclean: clean
 	@rm -f UtileClass
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
-re: fclean
-	@make
+re: fclean all

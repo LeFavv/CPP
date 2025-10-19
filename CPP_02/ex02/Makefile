@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 10:47:52 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/16 13:34:14 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/19 16:22:07 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,4 @@ fclean: clean
 	@rm -f NWCT
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
-re: fclean
-	@make
+re: fclean all

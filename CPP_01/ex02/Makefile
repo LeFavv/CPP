@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/12 08:53:06 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/12 08:53:49 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/19 16:21:10 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,4 @@ fclean: clean
 	@rm -f Hi_this_is_brain
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
-re: fclean
-	@make
+re: fclean all

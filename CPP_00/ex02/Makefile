@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 12:04:16 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/09 12:05:21 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/19 16:20:40 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,4 @@ fclean: clean
 	@rm -f GlobalBanksters
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
-re: fclean
-	@make
+re: fclean all
