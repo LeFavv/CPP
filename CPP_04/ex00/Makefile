@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 17:43:24 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/20 18:23:01 by vafavard         ###   ########.fr        #
+#    Updated: 2025/10/20 18:56:34 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Polymorph
 		
-FILE =	main.cpp Animal.cpp Cat.cpp Dog.cpp
+FILE =	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -35,7 +35,7 @@ ${NAME}: ${SRC}
 	@${CC} ${CFLAGS} -c $^
 
 clean:
-	@rm -f main.o Animal.o Cat.o Dog.o
+	@rm -f main.o Animal.o Cat.o Dog.o WrongCat.o WrongAnimal.o
 	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean
