@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:26 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 12:37:06 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:12:41 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class Cure : public AMateria
 {
 private:
-        std::string _type = "cure";
+        std::string _type;
 public:
         Cure(void);
         virtual ~Cure(void);
         Cure(Cure const &copy);
         Cure &operator=(Cure const &src);
         
-        Cure* clone()const;
-        void    use(ICharacter& target);
+        virtual AMateria* clone()const;
+        virtual void    use(ICharacter& target);
 
 };
 

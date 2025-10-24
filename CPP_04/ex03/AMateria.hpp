@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:11 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 11:10:10 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:12:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string>
 #include <iostream>
-#include "ICharacter.hpp"
+
+class ICharacter; // Forward declaration
 
 class AMateria
 {

@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:17 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 14:07:57 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:40:47 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character::Character(void)
 {
-    std::cout << "Default constructor Character called" << std::endl;
+    // std::cout << "Default constructor Character called" << std::endl;
     this->_name = "Robert";
     for (int i = 0; i < 4; i++)
     {
@@ -24,7 +24,7 @@ Character::Character(void)
 
 Character::Character(std::string const &name)
 {
-    std::cout << "Constructor Character called" << std::endl;
+    // std::cout << "Constructor Character called" << std::endl;
     this->_name = name;
     for (int i = 0; i < 4; i++)
     {
@@ -34,7 +34,7 @@ Character::Character(std::string const &name)
 
 Character::Character(Character const &copy)
 {
-    std::cout << "Copy constructor Character called" << std::endl;
+    // std::cout << "Copy constructor Character called" << std::endl;
     this->_name = copy._name;
     for (int i = 0; i < 4; i++)
     {
@@ -64,7 +64,7 @@ Character &Character::operator=(Character const &src)
 
 Character::~Character(void)
 {
-    std::cout << "Default destructor Character called" << std::endl;
+    // std::cout << "Default destructor Character called" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         if (this->tab[i] != NULL)
@@ -86,7 +86,7 @@ void    Character::equip(AMateria *m)
     }
     for (int i = 0; i < 4; i++)
     {
-        if (this->tab[i] != NULL)
+        if (this->tab[i] == NULL)
         {
             tab[i] = m;
             return;
@@ -97,14 +97,14 @@ void    Character::equip(AMateria *m)
 
 void    Character::unequip(int idx)
 {
-    if (idx < 1 || idx > 4)
+    if (idx < 0 || idx > 3)
     {
         std::cout << "Cant unequip, bad index" << std::endl;
         return ;
     }
-    if (this->tab[idx - 1] != NULL)
+    if (this->tab[idx] != NULL)
     {
-        this->tab[idx - 1] = NULL;
+        this->tab[idx] = NULL;
         std::cout << "Materia unequiped" << std::endl;
         return ;
     }
@@ -113,10 +113,19 @@ void    Character::unequip(int idx)
 
 void    Character::use(int idx, ICharacter& target)
 {
-    if (this->tab[idx - 1] == NULL)
+    for(int i = 0; i < 4; i++)
+    {
+        // if (this->tab[i])
+        // {
+        //     std::cout << "=============" << std::endl;
+        //     std::cout << this->tab[i]->getType() << std::endl;
+        // }
+    }
+    if (this->tab[idx] == NULL)
     {
         std::cout << "Nothing to use" << std::endl;
+        std::cout << target.getName() << " " << idx << std::endl;
         return ;
     }
-    this->tab[idx - 1]->use(target);
+    this->tab[idx]->use(target);
 }

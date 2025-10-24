@@ -6,9 +6,15 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:47:01 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 10:47:49 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 14:49:40 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main(void)
 {

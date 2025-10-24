@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:20 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 13:40:22 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:11:13 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ public:
         
         Character &operator=(Character const &src);
         
-        std::string const &getName()const;
-        void equip(AMateria* m);
-        void unequip(int idx);
-        void use(int idx, ICharacter& target);
+        virtual std::string const &getName()const;
+        virtual void equip(AMateria* m);
+        virtual void unequip(int idx);
+        virtual void use(int idx, ICharacter& target);
         //gerer les materias que j'unequip
 };
 
