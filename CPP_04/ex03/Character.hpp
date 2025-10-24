@@ -6,12 +6,35 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:20 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 10:53:23 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:40:22 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
+#include "ICharacter.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
+class Character : public ICharacter
+{
+private:    
+        std::string _name;
+        AMateria* tab[4]; //not sure
+public:
+        Character(void);
+        Character(std::string const &name);
+        Character(Character const &copy);
+        ~Character(void);
+        
+        Character &operator=(Character const &src);
+        
+        std::string const &getName()const;
+        void equip(AMateria* m);
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
+        //gerer les materias que j'unequip
+};
 
 #endif

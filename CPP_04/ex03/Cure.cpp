@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:23 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 11:45:37 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:49:51 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Cure &Cure::operator=(Cure const &src)
         this->_type = src._type;
     }
     return *this;
+}
+
+void    Cure::use(ICharacter& target)
+{
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
 
 Cure* Cure::clone()const

@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:51:26 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/24 11:45:21 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/10/24 12:37:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
         std::string _type = "cure";
 public:
         Cure(void);
-        ~Cure(void);
+        virtual ~Cure(void);
         Cure(Cure const &copy);
         Cure &operator=(Cure const &src);
         
