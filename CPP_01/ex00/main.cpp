@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:14:07 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/10 17:31:54 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/10 09:16:23 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@
 
 int main(void)
 {
-    randomChump();
+    Zombie *test = newZombie("Bernard");
+    randomChump("Bernadette");
+    delete(test);
 }
