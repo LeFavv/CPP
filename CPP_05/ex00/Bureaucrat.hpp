@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 17:14:01 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/11 14:25:08 by vafavard         ###   ########.fr       */
+/*   Created: 2025/11/11 15:22:39 by vafavard          #+#    #+#             */
+/*   Updated: 2025/11/11 15:41:47 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-void randomChump( std::string name)
+#include <string>
+#include <iostream>
+
+class Bureaucrat
 {
-   Zombie stack_zombie(name);
-   stack_zombie.announce();
-}
+private:
+    std::string const _name;
+    int _grade;
+    
+public:
+    Bureaucrat(void);
+    Bureaucrat(std::string name);
+    Bureaucrat(Bureaucrat const &src);
+    ~Bureaucrat(void);
+    Bureaucrat &operator=(Bureaucrat const &copy);
+
+};
+
+#endif

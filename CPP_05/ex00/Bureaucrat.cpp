@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 17:14:01 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/11 14:25:08 by vafavard         ###   ########.fr       */
+/*   Created: 2025/11/11 15:37:22 by vafavard          #+#    #+#             */
+/*   Updated: 2025/11/11 15:42:39 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Bureaucrat.hpp"
 
-void randomChump( std::string name)
+Bureaucrat::Bureaucrat(std::string name) : _name(name)
 {
-   Zombie stack_zombie(name);
-   stack_zombie.announce();
 }
