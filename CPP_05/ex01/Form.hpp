@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 10:31:38 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/13 21:36:49 by vafavard         ###   ########.fr       */
+/*   Created: 2025/11/12 16:42:50 by vafavard          #+#    #+#             */
+/*   Updated: 2025/11/12 16:47:49 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FORM_HPP
+# define FORM_HPP
+
 #include "Bureaucrat.hpp"
 
-int main(void)
+class Form : public Bureaucrat
 {
-    try
-    {
-        Bureaucrat test("test", 150);
-        std::cout << test << std::endl;
-        test.IncrementGrad();
-        std::cout << test << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "ERROR : " << e.what() << '\n';
-    }
-    
-    return (0);
-}
+public:
+
+private:
+        std::string const _name;
+        bool _IfSigned;
+        int const _grade_signed;
+        int const _grade_execute;
+};
+
+#endif
