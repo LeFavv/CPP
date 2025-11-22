@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 10:47:08 by vafavard          #+#    #+#              #
-#    Updated: 2025/11/12 16:42:43 by vafavard         ###   ########.fr        #
+#    Updated: 2025/11/22 03:07:19 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Bureaucrat
+NAME = Form
 		
 FILE =	main.cpp Bureaucrat.cpp Form.cpp
 
