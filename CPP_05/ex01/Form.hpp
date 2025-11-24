@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 22:00:54 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/13 22:45:12 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:14:03 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include "Bureaucrat.hpp"
 
-class Form : public Bureaucrat
+class Bureaucrat;
+
+class Form
 {
 public:
         Form(void);
@@ -23,7 +25,13 @@ public:
         Form(Form const &src);
         Form &operator=(Form const &copy);
         ~Form(void);
-
+        
+        void    beSigned(Bureaucrat &b);
+        
+        int getGradeSign(void)const;
+        int getGradeExec(void)const;
+        bool    getIfSigned(void)const;
+        std::string getName(void)const;
 
 private:
         std::string const _name;
@@ -45,6 +53,6 @@ public :
 };
 };
 
-std::ostream& operator<<(std::ostream& os, const Form &f);
+std::ostream& operator<<(std::ostream& os, const Form &form);
 
 #endif

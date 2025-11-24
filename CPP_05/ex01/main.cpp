@@ -6,25 +6,23 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 10:31:38 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/13 21:36:49 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:42:35 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
     try
     {
-        Bureaucrat test("test", 150);
-        std::cout << test << std::endl;
-        test.IncrementGrad();
-        std::cout << test << std::endl;
+        Bureaucrat Bernard("Bernard", 18);
+        std::cout << Bernard << std::endl;
+        Form Formulaire("FormA" , 18, 20);
     }
-    catch(const std::exception& e)
+    catch (std::exception &e)
     {
-        std::cerr << "ERROR : " << e.what() << '\n';
+        std::cout << e.what() << std::endl;
     }
-    
-    return (0);
 }
