@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:37:22 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/24 14:02:48 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/24 16:59:44 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int Bureaucrat::GetGrade(void)const
 
 void    Bureaucrat::IncrementGrad(void)
 {
-    if (this->_grade >= 1)
+    if (this->_grade <= 1)
         throw Bureaucrat::GradeTooHightException();
     this->_grade--;
 }
