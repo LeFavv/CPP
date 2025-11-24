@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 10:47:08 by vafavard          #+#    #+#              #
-#    Updated: 2025/11/22 03:07:19 by vafavard         ###   ########.fr        #
+#    Updated: 2025/11/24 17:22:33 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ clean:
 	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean
-	@rm -f Bureaucrat
+	@rm -f Form
 	@echo "$(RED)💀Supression de l'executable💀$(RED)"
 
 re: fclean all
