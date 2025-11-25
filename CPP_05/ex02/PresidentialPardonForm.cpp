@@ -6,36 +6,36 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 10:46:19 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 12:11:20 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 13:04:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardon::PresidentialPardon() : AForm("Default", 25, 5), _target("Default"){}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", 25, 5), _target("Default"){}
 
-PresidentialPardon::PresidentialPardon(std::string target) : AForm(target, 25, 5), _target(target){}
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 25, 5), _target(target){}
 
-PresidentialPardon::PresidentialPardon(PresidentialPardon const &source)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &source)
 {
     *this = source;
 }
 
-PresidentialPardon::~PresidentialPardon(void){};
+PresidentialPardonForm::~PresidentialPardonForm(void){};
 
-PresidentialPardon &PresidentialPardon::operator=(PresidentialPardon const &copy)
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &copy)
 {
     if (this != &copy)
         this->_IfSigned = copy._IfSigned;
     return (*this);
 }
 
-std::string PresidentialPardon::GetTarget(void)const
+std::string PresidentialPardonForm::GetTarget(void)const
 {
     return (this->_target);
 }
 
-void    PresidentialPardon::execute(Bureaucrat const &executor)const
+void    PresidentialPardonForm::execute(Bureaucrat const &executor)const
 {
     if (this->getIfSigned() == 0)
         throw AForm::NotSignedException();
@@ -43,5 +43,11 @@ void    PresidentialPardon::execute(Bureaucrat const &executor)const
         throw AForm::TooLowToExec();
     else
         std::cout << GetTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}
 
+std::ostream &operator<<(std::ostream& os, const PresidentialPardonForm &form)
+{
+	std::cout << form.getName() << " signed : " << (form.getIfSigned() ? "Yes" : "No")
+	<< "Grade to Sign : " << form.getGradeSign() << " Grade to Exec : " << form.getGradeExec() << std::endl; 
+    return os;
 }
