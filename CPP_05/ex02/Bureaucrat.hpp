@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:22:39 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 11:51:52 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:10:20 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class AForm;
 
@@ -37,7 +37,7 @@ public:
 
     void    IncrementGrad(void);
     void    DecrementGrad(void);
-    void    signForm(Form &form);
+    void    signForm(AForm &form);
     
     void executeForm(AForm const & form) const;
     

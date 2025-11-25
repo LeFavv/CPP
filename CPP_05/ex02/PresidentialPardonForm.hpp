@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 10:46:21 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 13:04:42 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:22:43 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+
 
 class PresidentialPardonForm : public AForm
 {

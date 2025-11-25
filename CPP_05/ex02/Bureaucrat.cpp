@@ -6,12 +6,12 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:37:22 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/24 16:59:44 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:10:49 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Default")
 {
@@ -38,7 +38,7 @@ Bureaucrat     &Bureaucrat::operator=(Bureaucrat const &copy)
     return (*this);
 }
 
-Form	&Form::operator=(const Form &copy)
+AForm	&AForm::operator=(const AForm &copy)
 {
 	this->_IfSigned = copy._IfSigned;
 	return (*this);
@@ -77,7 +77,7 @@ std::ostream &operator<<(std::ostream& os, const Bureaucrat &b)
     return os;
 }
 
-void    Bureaucrat::signForm(Form &form)
+void    Bureaucrat::signForm(AForm &form)
 {
     try
     {
@@ -99,4 +99,18 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 const char *Bureaucrat::GradeTooHightException::what() const throw()
 {
 	return ("Grade too high");
+}
+
+void Bureaucrat::executeForm(AForm const &form)const
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << GetName() << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception & e) {
+        std::cout << GetName()
+                  << " couldnt execute " << form.getName()
+                  << " because " << e.what() << std::endl;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 10:46:19 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 13:04:29 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:46:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string PresidentialPardonForm::GetTarget(void)const
 
 void    PresidentialPardonForm::execute(Bureaucrat const &executor)const
 {
-    if (this->getIfSigned() == 0)
+    if (this->getIfSigned() == false)
         throw AForm::NotSignedException();
     else if (executor.GetGrade() > this->getGradeExec())
         throw AForm::TooLowToExec();

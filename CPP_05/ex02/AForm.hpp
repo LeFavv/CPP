@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 22:00:54 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 12:13:15 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:24:24 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define AFORM_HPP
 
 #include "Bureaucrat.hpp"
+// #include "PresidentialPardonForm.hpp"
+// #include "ShrubberyCreationForm.hpp"
+// #include "RobotomyRequestForm.hpp"
 
 class Bureaucrat;
 
@@ -33,7 +36,7 @@ public:
         bool    getIfSigned(void)const;
         std::string getName(void)const;
         
-        virtual void execute(Bureaucrat const &executor) = 0;
+        virtual void execute(Bureaucrat const &executor)const = 0;
 
 protected:
         std::string const _name;
