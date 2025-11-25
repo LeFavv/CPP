@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 14:13:32 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 16:46:50 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:50:25 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int main()
     try
     {
         Bureaucrat Manu("Manu", 6);
-        // PresidentialPardonForm salut("Manu_Form");
-        
         Intern test;
         salut = test.makeForm("president", "Manu");
         std::cout << *salut;
@@ -90,7 +88,6 @@ int main()
     try
     {
         Bureaucrat Bob("Bob", 6);
-        // RobotomyRequestForm salut("Bob_Form");
         Intern test;
         salut3 = test.makeForm("robot", "Bob");
         std::cout << *salut3;
@@ -110,7 +107,6 @@ int main()
     try
     {
         Bureaucrat Bernadette("Bernadette", 10);
-        // RobotomyRequestForm salut("Bernadette_Form");
         Intern test;
         salut4 = test.makeForm("robot", "Bernadette");
         std::cout << *salut4;
@@ -131,7 +127,6 @@ int main()
     try
     {
         Bureaucrat Bernard("Bernard", 10);
-        // RobotomyRequestForm salut("Bernard_Form");
         Intern test;
         salut5 = test.makeForm("robot", "Bernard");
         std::cout << *salut5;
@@ -157,7 +152,6 @@ int main()
     try
     {
         Bureaucrat Gerard("Gerard", 6);
-        // ShruberryCreationForm salut("Gerard_Form");
         Intern test;
         salut6 = test.makeForm("shrubbery", "Gerard");
         std::cout << *salut6;
@@ -177,7 +171,6 @@ int main()
     try
     {
         Bureaucrat Albert("Albert", 10);
-        // ShruberryCreationForm salut("Albert_Form");
         Intern test;
         salut7 = test.makeForm("shrubbery", "Albert");
         std::cout << *salut7;
@@ -198,7 +191,6 @@ int main()
     try
     {
         Bureaucrat Gertrude("Gertrude", 10);
-        // ShruberryCreationForm salut("Gertrude_Form");
         Intern test;
         salut8 = test.makeForm("shrubbery", "Gertrude");
         std::cout << *salut8;

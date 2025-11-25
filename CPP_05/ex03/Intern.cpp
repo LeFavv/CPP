@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 15:22:40 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/25 15:46:25 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:49:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ AForm*   Intern::makeForm(std::string formName, std::string target)
         default :
                 std::cout << "Error : Intern Failed to Create" << std::endl;
                 return (NULL);
-        
     }
 }
