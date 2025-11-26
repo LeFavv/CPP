@@ -84,7 +84,11 @@ int main(int argc, char **argv)
             // printf("char = '%c'\n", c);
             // printf("int = %d\n", d);
             // printf("float = %.1ff\n", a);
-            std::cout << a << "f" << std::endl;
+            bool has_decimal = (a != (int)a);
+            if (has_decimal)
+                std::cout << a << "f" << std::endl;
+            else
+                std::cout << a << ".0f" << std::endl;
             // printf("double = %.1f\n", b);
         // }
         // catch (std::exception &e)
