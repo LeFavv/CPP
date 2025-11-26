@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:02:55 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/26 14:53:05 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:02:52 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 // std::strtol (pour int et char du coup)
 // std::strtof (float)
 // std::strtod (double)
+
+//pas le droit a printf
+
+//dans un premier temps voir si la string est un int, char, float ou double
+//puis pas exemple si c'est un int appeler fonction ToInt qui va d'abord traduire l'int puis le reste
+
+// si c'est ni un int, char, float ou double regarder si'il ne s'agit pas de -inf, +inf ou -inff, +inff
 
 void    ToInt(char const * value)
 {

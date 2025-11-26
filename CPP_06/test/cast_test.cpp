@@ -2,6 +2,8 @@
 #include <string>
 #include <stdio.h>
 
+#include <iomanip>
+
 int main(int argc, char **argv)
 {
     // std::cout << "\n============================= TEST CAST IMPLICIT / EXPLICIT SIMPLE ===============================\n\n";
@@ -73,7 +75,6 @@ int main(int argc, char **argv)
         // {
             float a;
             char *end;
-
             if (!(a = std::strtof(argv[1], &end)))
                 return(printf("je sors\n"), 1);
             // double b = std::stod(argv[1]);
@@ -82,7 +83,8 @@ int main(int argc, char **argv)
             
             // printf("char = '%c'\n", c);
             // printf("int = %d\n", d);
-            printf("float = %.1ff\n", a);
+            // printf("float = %.1ff\n", a);
+            std::cout << a << "f" << std::endl;
             // printf("double = %.1f\n", b);
         // }
         // catch (std::exception &e)
