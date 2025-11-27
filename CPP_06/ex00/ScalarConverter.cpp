@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:02:55 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/26 15:02:52 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:00:58 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@
 //puis pas exemple si c'est un int appeler fonction ToInt qui va d'abord traduire l'int puis le reste
 
 // si c'est ni un int, char, float ou double regarder si'il ne s'agit pas de -inf, +inf ou -inff, +inff
+
+// char *end;
+//         double test = std::strtod(argv[1], &end);
+//         if (!end)
+//             return (1);
+//         std::cout << "Double: " << test << std::endl;
+//         std::cout << "Int: " << static_cast<int>(test) << std::endl;
+//         std::cout << "Float: " << static_cast<float>(test) << std::endl;
+//         std::cout << "Char: " << static_cast<char>(static_cast<int>(test)) << std::endl;
+
+//Necessite de gerer avec static_cast
 
 void    ToInt(char const * value)
 {

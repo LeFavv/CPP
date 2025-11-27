@@ -1,6 +1,8 @@
+
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <cstdlib>
 
 #include <iomanip>
 
@@ -69,32 +71,43 @@ int main(int argc, char **argv)
     // std::cout << "Valeur de d = " << d << std::endl;
 
     // std::string test = "ceci est un test";
+    // if (argc == 2)
+    // {
+    //     // try 
+    //     // {
+    //         float a;
+    //         char *end;
+    //         if (!(a = std::strtof(argv[1], &end)))
+    //             return(printf("je sors\n"), 1);
+    //         // double b = std::stod(argv[1]);
+    //         // char c = std::stoi(argv[1]);
+    //         // int  d = std::stoi(argv[1]);
+            
+    //         // printf("char = '%c'\n", c);
+    //         // printf("int = %d\n", d);
+    //         // printf("float = %.1ff\n", a);
+    //         bool has_decimal = (a != (int)a);
+    //         if (has_decimal)
+    //             std::cout << a << "f" << std::endl;
+    //         else
+    //             std::cout << a << ".0f" << std::endl;
+    //         // printf("double = %.1f\n", b);
+    //     // }
+    //     // catch (std::exception &e)
+    //     // {
+    //     //     std::cout << e.what() << std::endl;
+    //     // }
+    // }
     if (argc == 2)
     {
-        // try 
-        // {
-            float a;
-            char *end;
-            if (!(a = std::strtof(argv[1], &end)))
-                return(printf("je sors\n"), 1);
-            // double b = std::stod(argv[1]);
-            // char c = std::stoi(argv[1]);
-            // int  d = std::stoi(argv[1]);
-            
-            // printf("char = '%c'\n", c);
-            // printf("int = %d\n", d);
-            // printf("float = %.1ff\n", a);
-            bool has_decimal = (a != (int)a);
-            if (has_decimal)
-                std::cout << a << "f" << std::endl;
-            else
-                std::cout << a << ".0f" << std::endl;
-            // printf("double = %.1f\n", b);
-        // }
-        // catch (std::exception &e)
-        // {
-        //     std::cout << e.what() << std::endl;
-        // }
+        char *end;
+        double test = std::strtod(argv[1], &end);
+        if (!end)
+            return (1);
+        std::cout << "Double: " << test << std::endl;
+        std::cout << "Int: " << static_cast<int>(test) << std::endl;
+        std::cout << "Float: " << static_cast<float>(test) << std::endl;
+        std::cout << "Char: " << static_cast<char>(static_cast<int>(test)) << std::endl;
     }
     return (0);
 }

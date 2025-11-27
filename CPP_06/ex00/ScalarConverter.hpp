@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:03:00 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/26 14:29:52 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:36:15 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include <stdio.h>
+#include <cstdlib>
 
 class ScalarConverter
 {
