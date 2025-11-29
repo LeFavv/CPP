@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:02:55 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/29 09:57:19 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 10:27:09 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ bool    IsDouble(std::string value)
 
 bool IsChar(std::string value)
 {
-    if (value.size() == 1)
+    if (value.size() == 1 && IsNum(value[0]))
         return (true);
     return (false);
 }
