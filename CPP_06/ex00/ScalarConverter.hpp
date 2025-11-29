@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:03:00 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/29 09:16:35 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:56:25 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class ScalarConverter
 public:
         static void converter(std::string value);
 private:
-        // ScalarConverter(void);
-        // ScalarConverter(ScalarConverter const &src);
-        // ~ScalarConverter(void);
-        // ScalarConverter &operator=(ScalarConverter const &copy);
+        ScalarConverter(void);
+        ScalarConverter(ScalarConverter const &src);
+        ~ScalarConverter(void);
+        ScalarConverter &operator=(ScalarConverter const &copy);
 
 };
 

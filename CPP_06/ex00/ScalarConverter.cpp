@@ -6,12 +6,27 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:02:55 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/29 09:53:32 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:57:19 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+
+ScalarConverter::ScalarConverter(){};
+
+ScalarConverter::~ScalarConverter(){};
+
+ScalarConverter::ScalarConverter(const ScalarConverter &src)
+{
+	*this = src;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
+{
+	(void)copy;
+	return *this;
+}
 void    ToInt(char const * value)
 {
     char    *end;
