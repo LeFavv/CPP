@@ -6,38 +6,11 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:02:55 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/27 16:00:58 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:53:32 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
-//ordre d'affichage des valeurs
-// char
-// int
-// float
-// double
-// std::strtol (pour int et char du coup)
-// std::strtof (float)
-// std::strtod (double)
-
-//pas le droit a printf
-
-//dans un premier temps voir si la string est un int, char, float ou double
-//puis pas exemple si c'est un int appeler fonction ToInt qui va d'abord traduire l'int puis le reste
-
-// si c'est ni un int, char, float ou double regarder si'il ne s'agit pas de -inf, +inf ou -inff, +inff
-
-// char *end;
-//         double test = std::strtod(argv[1], &end);
-//         if (!end)
-//             return (1);
-//         std::cout << "Double: " << test << std::endl;
-//         std::cout << "Int: " << static_cast<int>(test) << std::endl;
-//         std::cout << "Float: " << static_cast<float>(test) << std::endl;
-//         std::cout << "Char: " << static_cast<char>(static_cast<int>(test)) << std::endl;
-
-//Necessite de gerer avec static_cast
 
 void    ToInt(char const * value)
 {
@@ -93,17 +66,244 @@ void    ToDouble(char const * value)
     printf("Double: %.1f\n", result);
 }
 
-int value_type(char const *value)
+bool    IsNum(char c)
 {
+    if (c >= '0' && c <= '9')
+        return (true);
+    return (false);
+}
+
+bool    IsDot(char c)
+{
+    if (c == '.')
+        return (true);
+    return (false);
+}
+
+bool IsInt(std::string value)
+{
+    for (int i = 0; value[i]; i++)
+    {
+        if (!IsNum(value[i]))
+            return (false);
+    }
+    return (true);
+}
+
+bool    IsFloat(std::string value)
+{
+    int DotCount = 0;
+     
+    for (int i = 0; value[i]; i++)
+    {
+        if (!IsNum(value[i]))
+        {
+            if (IsDot(value[i]))
+                DotCount += 1;
+            else if (i == (int)(value.size()) && value[i] != 'f')
+                return (false);
+        }
+    }
+    if (DotCount != 1)
+        return (false);
+    return (true);
+}
+
+bool    IsDouble(std::string value)
+{
+    int DotCount = 0;
+     
+    for (int i = 0; value[i]; i++)
+    {
+        if (!IsNum(value[i]))
+        {
+            if (IsDot(value[i]))
+                DotCount += 1;
+            else
+                return (false);
+        }
+    }
+    if (DotCount != 1)
+        return (false);
+    return (true);
+}
+
+bool IsChar(std::string value)
+{
+    if (value.size() == 1)
+        return (true);
+    return (false);
+}
+
+void    convertInt(std::string value)
+{
+    char *end;
+    char *end2;
+    int result = std::strtol(value.c_str(), &end, 10);
+    float result2 = std::strtof(value.c_str(), &end2);
+    
+    if (!(result < 0 || result > 127))
+    {
+        if (!(result >= 32 && result <= 126))
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << "'" << static_cast<char>(result) << "'" << std::endl;
+    }
+    else 
+        std::cout << "char: impossible" << std::endl;
+    if (result2 < INT_MIN || result2 > INT_MAX)
+    {
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
+    else
+    {
+        std::cout << "int: " << result << std::endl;
+        std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+    }
+}
+
+void    convertFloat(std::string value)
+{
+    char *end;
+    float result = std::strtof(value.c_str(), &end);
+    
+    if (!(result < 0 || result > 127))
+    {
+        if (!(result >= 32 && result <= 126))
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << "'" << static_cast<char>(result) << "'" << std::endl;
+    }
+    else 
+        std::cout << "char: impossible" << std::endl;
+    std::cout << "int: " << static_cast<int>(result) << std::endl;
+    if (result == static_cast<int>(result))
+    {
+        std::cout << "float: " << result << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << result << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(result) << std::endl;
+    }
+}
+
+void    convertDouble(std::string value)
+{
+    char *end;
+    float result = std::strtod(value.c_str(), &end);
+    
+    if (!(result < 0 || result > 127))
+    {
+        if (!(result >= 32 && result <= 126))
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << "'" << static_cast<char>(result) << "'" << std::endl;
+    }
+    else 
+        std::cout << "char: impossible" << std::endl;
+    std::cout << "int: " << static_cast<int>(result) << std::endl;
+    if (result == static_cast<int>(result))
+    {
+        std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
+        std::cout << "double: " << result << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << static_cast<float>(result) << "f" << std::endl;
+        std::cout << "double: " << result << std::endl;
+    }
+}
+
+void    convertChar(std::string value)
+{
+    int result = value[0];
+    
+    if ((result >= 0 && result <= 127))
+    {
+        if (!(result >= 32 && result <= 126))
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << "'" << static_cast<char>(result) << "'" << std::endl;
+    }
+    else 
+        std::cout << "char: impossible" << std::endl;
+    std::cout << "int: " << result << std::endl;
+    std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+}
+
+void    convertElse(std::string value)
+{
+    char *end;
+    
+    if (value == "nan")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    }
+    else if (value == "nanf")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    }
+    else if (value == "+inf")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << strtof(value.c_str(), &end) << "f" <<std::endl;
+		std::cout << "double: " << strtod(value.c_str(), &end) << std::endl;
+    }
+    else if (value == "-inf")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << strtof(value.c_str(), &end) << "f" <<std::endl;
+		std::cout << "double: " << strtod(value.c_str(), &end) << std::endl;
+    }
+    else if (value == "+inff")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << strtof(value.c_str(), &end) << "f" <<std::endl;
+		std::cout << "double: " << strtod(value.c_str(), &end) << std::endl;
+    }
+    else if (value == "-inff")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << strtof(value.c_str(), &end) << "f" <<std::endl;
+		std::cout << "double: " << strtod(value.c_str(), &end) << std::endl;
+    }
+    else
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
+    
     
 }
 
-void ScalarConverter::converter(char const * value)
-{
-    ToChar(value);
-    ToInt(value);
-    ToFloat(value);
-    ToDouble(value);
-    
-    int order = value_type(value);
+void ScalarConverter::converter(std::string value)
+{  
+    if (IsChar(value))
+        convertChar(value);
+    else if (IsInt(value))
+        convertInt(value);
+    else if (IsFloat(value))
+        convertFloat(value);
+    else if (IsDouble(value))
+        convertDouble(value);
+    else
+        convertElse(value);
 }

@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:03:00 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/27 15:36:15 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 09:16:35 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 #include <string>
 #include <stdio.h>
 #include <cstdlib>
+#include <cstdio>
+#include <limits.h>
 
 class ScalarConverter
 {
 public:
-        static void converter(char const * value);
+        static void converter(std::string value);
 private:
         // ScalarConverter(void);
         // ScalarConverter(ScalarConverter const &src);
