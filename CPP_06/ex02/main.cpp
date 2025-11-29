@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 20:04:23 by vafavard          #+#    #+#             */
-/*   Updated: 2025/11/29 21:39:07 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/11/29 21:44:21 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,26 @@ void identify(Base& p)
     try 
     {
         A &a = dynamic_cast<A &>(p);
+        (void)a;
         std::cout << "p = 'A'" << std::endl;
     }
-    catch (std::bad_cast&) //ca doit pas etre ca la bonne methode
+    catch (std::exception&) //ca doit pas etre ca la bonne methode
     {
         try 
         {
             B &b = dynamic_cast<B &>(p);
+            (void)b;
             std::cout << "p = 'B'" << std::endl;
         }
-        catch (std::bad_cast&)
+        catch (std::exception&)
         {
             try 
             {
                 C &c = dynamic_cast<C &>(p);
+                (void)c;
                 std::cout << "p = 'C'" << std::endl;
             }
-            catch (std::bad_cast&)
+            catch (std::exception&)
             {
                 std::cout << "fail" << std::endl;
             }
