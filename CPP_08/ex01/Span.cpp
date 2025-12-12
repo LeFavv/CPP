@@ -6,24 +6,24 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 03:27:19 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/12 04:19:49 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/12 06:00:23 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(void) : _max(5), _index(0){}
+Span::Span(void) : _index(0), _max(5){}
 
 Span::Span(unsigned int const N)
 {
-    _max = N;
     _index = 0;
+    _max = N;
 }
 
 Span::Span(Span const &src)
 {
-    _max = src._max;
     _index = src._index;
+    _max = src._max;
     _array = src._array;
 }
 
@@ -56,21 +56,17 @@ void    Span::addNumber(int nb)
 int Span::findMin(void)
 {
     int res = _array[0];
-    // std::cout << "value index min: " << _index << std::endl;
     for (unsigned int i = 0; i < _index; i++)
     {
-        // std::cout << "Valeur de array a i : " << i << " " << _array[i] << std::endl;
         if (res > _array[i])
             res = _array[i];
     }
     return res;
 }
 
-
 int Span::findMax(void)
 {
     int res = _array[0];
-    // std::cout << "value index max: " << _index << std::endl;
     for (unsigned int i = 0; i < _index; i++)
     {
         if (res < _array[i])
@@ -81,18 +77,57 @@ int Span::findMax(void)
 
 int Span::shortestSpan(void)
 {
-//throw exception if no nb are stored or if there is juste one
-    
+    if (_index <= 1)
+        throw std::runtime_error("Error : Not enough numbers");
+
+    std::vector<int> tmp(_array.begin(), _array.begin() + _index);
+
+    std::sort(tmp.begin(), tmp.end());
+
+    int minSpan = std::numeric_limits<int>::max();
+
+    for (unsigned int i = 0; i < tmp.size() - 1; i++)
+    {
+        int diff = tmp[i + 1] - tmp[i];
+        if (diff < minSpan)
+            minSpan = diff;
+    }
+
+    return minSpan;
 }
+
 
 int Span::longestSpan(void)
 {
     if (_index <= 1)
         throw std::runtime_error ("Error : Not enough numbers");
     else
-    {
-        // std::cout << findMin() << std::endl;
         return (findMax() - findMin());
-    }
 }
 
+void   Span::randpush(void)
+{
+    _array.resize(_max);
+
+    for (unsigned int i = 0; i < _max; i++)
+        _array[i] = rand();
+
+    _index = _max;
+}
+
+unsigned int Span::getIndex(void)const
+{
+    return (this->_index);
+}
+
+int Span::getValue(int index)const
+{
+    return (this->_array[index]);
+}
+
+std::ostream &operator<<(std::ostream& os, const Span &s)
+{
+    for (unsigned int i = 0; i < s.getIndex(); i++)
+        os << "i = " << i << " Valeur = " << s.getValue(i) << std::endl;
+    return os;
+}

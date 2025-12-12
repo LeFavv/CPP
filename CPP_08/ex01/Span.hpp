@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 03:27:21 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/12 04:19:55 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/12 06:01:13 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <limits>
 
-// template< typename T>
 class Span
 {
 public:
@@ -37,11 +37,17 @@ public:
         int     findMin(void);
         int     findMax(void);
         
+        void    randpush(void);
+        
+        unsigned int getIndex(void)const;
+        int getValue(int index)const;
+        
 private:
         unsigned int _index;
         unsigned int  _max;
         std::vector<int> _array;
 
 };
+std::ostream& operator<<(std::ostream& os, const Span &s);
 
 #endif
