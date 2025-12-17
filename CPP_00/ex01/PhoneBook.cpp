@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:49 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 15:11:05 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:20:16 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
-#include "Contact.class.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include "main.hpp"
 

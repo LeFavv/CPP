@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:50:57 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 14:42:48 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:18:27 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 #include <string>
 
 

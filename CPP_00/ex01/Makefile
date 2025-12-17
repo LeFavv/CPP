@@ -6,7 +6,7 @@
 #    By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/09 11:57:03 by vafavard          #+#    #+#              #
-#    Updated: 2025/10/19 16:20:30 by vafavard         ###   ########.fr        #
+#    Updated: 2025/12/17 10:20:35 by vafavard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
 		
-FILE =	Contact.cpp main.cpp PhoneBook.class.cpp
+FILE =	Contact.cpp main.cpp PhoneBook.cpp
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -35,7 +35,7 @@ ${NAME}: ${SRC}
 	@${CC} ${CFLAGS} -c $^
 
 clean:
-	@rm -f Contact.o main.o PhoneBook.class.o
+	@rm -f Contact.o main.o PhoneBook.o
 	@echo "$(RED)🧹Supression des objets🧹$(RED)"
 
 fclean: clean

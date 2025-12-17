@@ -6,12 +6,12 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:56:08 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/09 11:59:29 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:18:56 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
-#include "Contact.class.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include "main.hpp"
 
 int ft_is_alpha(std::string str)

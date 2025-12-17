@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:42:59 by vafavard          #+#    #+#             */
-/*   Updated: 2025/10/07 14:27:48 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 10:18:44 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 class PhoneBook {
 
