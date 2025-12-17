@@ -1,0 +1,23 @@
+Class Template std::stack
+
+Fonctions membres :
+   - (constructor)
+   - empty = test si un container est vide
+   - size = Retourne la taille
+   - top = Accede a l'element suivant
+   - push = Insert un element
+   - emplace = Construit et insert un element
+   - pop = Remove top element
+   - swap = SWapt contents
+
+Liste des methodes qui retournent l'iterateur du container 
+   - begin() = Returns an iterator to the beginning of container
+   - end() = Returns an iterator to the theoretical element juste after the last element
+of the container
+   - cbegin() = Meme chose que begin() mais le return est const 
+   - cend() = Meme chose que end() mais le return est const
+   - rbegin() = Returns a reverse iterator to the beginning of container ??
+   - rend() = Returns a reverse iterator to the theoretical element just after the last element 
+to the container
+   - crbegin() = Meme chose que rbegin() mais en constant
+   - crend() = Meme chose que rend() mais en cosntant 

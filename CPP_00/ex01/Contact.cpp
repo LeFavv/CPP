@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:52:44 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/17 10:19:57 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:26:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Contact::~Contact(void){};
 int Contact::FillContact(void)
 {
 	std::cout << "[First Name] : ";
+	if (!_FirstName.empty())
+		_FirstName.clear();
 	while (_FirstName.empty() || !ft_is_alpha(_FirstName))
 	{
 		std::getline(std::cin, _FirstName);
@@ -34,6 +36,8 @@ int Contact::FillContact(void)
 		
 	}
 	std::cout << "[Last Name] : ";
+	if (!_LastName.empty())
+		_LastName.clear();
 	while (_LastName.empty() || !ft_is_alpha(_LastName))
 	{
 		std::getline(std::cin, _LastName);
@@ -46,6 +50,8 @@ int Contact::FillContact(void)
 			return 0;
 	}
 	std::cout << "[NickName] : ";
+	if (!_NickName.empty())
+		_NickName.clear();
 	while (_NickName.empty())
 	{
 		std::getline(std::cin, _NickName);
@@ -53,6 +59,8 @@ int Contact::FillContact(void)
 			return 0;
 	}
 	std::cout << "[Phone Number] : ";
+	if (!_PhoneNbr.empty())
+		_PhoneNbr.clear();
 	while (_PhoneNbr.empty() || !ft_is_num(_PhoneNbr) || _PhoneNbr.size() < 4)
 	{
 		std::getline(std::cin, _PhoneNbr);
@@ -70,6 +78,8 @@ int Contact::FillContact(void)
 			return 0;
 	}
 	std::cout << "[Darkest Secret] : ";
+	if (!_DarkestSecret.empty())
+		_DarkestSecret.clear();
 	while (_DarkestSecret.empty())
 	{
 		std::getline(std::cin, _DarkestSecret);

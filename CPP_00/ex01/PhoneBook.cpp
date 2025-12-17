@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:49 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/17 10:20:16 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:33:46 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,12 @@ int    PhoneBook::PrintAllContacts(void){
         std::cout << "Nothing to print" << std::endl;
         return 0;
     }
-    for (int i = 0; i < NbContacts; i++)
+    int temp;
+    if (NbContacts > 8)
+        temp = 8;
+    else
+        temp = NbContacts;
+    for (int i = 0; i < temp ; i++)
     {
         list[i].Print(i);
     }
@@ -59,9 +64,9 @@ int    PhoneBook::PrintAllContacts(void){
 			return (0);
 	}
     int nbIndex = index[0] - '0';
-    if (nbIndex > NbContacts)
+    if (nbIndex > NbContacts % 8)
     {
-        std::cout << "Nothing to print a this index" << std::endl;
+        std::cout << "Nothing to print at this index" << std::endl;
         return (1);
     }
     list[nbIndex - 1].PrintIndex(); 

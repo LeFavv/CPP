@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/07 12:04:59 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/17 10:26:02 by vafavard         ###   ########.fr       */
+/*   Created: 2025/12/17 10:49:39 by vafavard          #+#    #+#             */
+/*   Updated: 2025/12/17 10:49:39 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
-
-#include <cstring>
-#include <iostream>
-#include <cctype>
-#include <string>
-
-int ft_is_alpha(std::string str);
-int ft_is_num(std::string str);
-
-#endif
