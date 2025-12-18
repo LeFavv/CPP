@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 14:29:15 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:05:11 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ std::string truncateDate(std::string buffer)
     }
     i -= j;
     date = buffer.substr(0, j);
-    std::cout << date << std::endl;
+    // std::cout << date << std::endl;
     return date;
 }
 
@@ -65,7 +65,7 @@ double  truncateExchangeRate(std::string buffer)
 
 int main(void)
 {
-    // std::map<std::string, double> test1; //string pour la date et double pour le taux de change
+    std::map<std::string, double> test1; //string pour la date et double pour le taux de change
     std::ifstream infile;
     std::string     buffer;
     std::string     date;
@@ -80,7 +80,13 @@ int main(void)
             date = truncateDate(buffer);
             // std::cout << date << std::cout;
             exchangeRate = truncateExchangeRate(buffer);
-            std::cout << exchangeRate << std::endl;
+            // std::cout << exchangeRate << std::endl;
+            test1.insert({date, exchangeRate});
+            // std::cout << test1 << std::endl;
+        }
+        for (const auto& pair : test1)
+        {
+            std::cout << pair.first << " " << pair.second << std::endl;
         }
     }
     else
