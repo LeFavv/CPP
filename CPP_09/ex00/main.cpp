@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 15:19:58 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:21:23 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int main(void)
                 test1.insert({date, exchangeRate});
             // std::cout << test1 << std::endl;
         }
-        for (const auto& pair : test1)
+        for (auto& pair:test1)
         {
             std::cout << pair.first << " " << pair.second << std::endl;
         }
