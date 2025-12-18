@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 15:05:11 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:19:58 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 #include <algorithm>
 #include <map>
 #include <fstream>
-
-// std::string truncateDate(std::string buffer)
-// {
-//     std::string date;
-//     for (int i = 0; buffer[i] != ','; i++)
-//     {
-//         date[i] = buffer[i];
-//     }
-//     std::cout << date << std::endl;
-//     return (date);
-// }
 
 std::string truncateDate(std::string buffer)
 {
@@ -58,14 +47,13 @@ double  truncateExchangeRate(std::string buffer)
     }
     i -= j;
     std::string temp = buffer.substr(j + 1, i);
-    // std::cout << temp << std::endl;
     exchangeRate = atof(temp.c_str());
     return exchangeRate;
 }
 
 int main(void)
 {
-    std::map<std::string, double> test1; //string pour la date et double pour le taux de change
+    std::map<std::string, float> test1; //string pour la date et double pour le taux de change
     std::ifstream infile;
     std::string     buffer;
     std::string     date;
@@ -81,7 +69,8 @@ int main(void)
             // std::cout << date << std::cout;
             exchangeRate = truncateExchangeRate(buffer);
             // std::cout << exchangeRate << std::endl;
-            test1.insert({date, exchangeRate});
+            if (date != "date")
+                test1.insert({date, exchangeRate});
             // std::cout << test1 << std::endl;
         }
         for (const auto& pair : test1)
