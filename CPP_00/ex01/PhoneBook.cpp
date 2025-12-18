@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:47:49 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 15:59:16 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:09:23 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int    PhoneBook::PrintAllContacts(void){
 			return (0);
 	}
     int nbIndex = index[0] - '0';
-    //ici dans la condition
     if (nbIndex > 8 || nbIndex > NbContacts)
     {
         std::cout << "Nothing to print at this index" << std::endl;
