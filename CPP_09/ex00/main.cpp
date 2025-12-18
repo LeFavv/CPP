@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 16:13:58 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:23:49 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <algorithm>
 #include <map>
 #include <fstream>
+
+//Pas necessaire de verifier le .csv car tout doit etre OK logiquement
+//Utiliser la meme logique pour check l'input mais pousser un peu plus la verifications des donnees (voir fichier test.txt pour les verifs a faire)
 
 std::string truncateDate(std::string buffer)
 {
