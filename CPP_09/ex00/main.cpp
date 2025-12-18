@@ -6,7 +6,85 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 13:02:12 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:29:15 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <fstream>
+
+// std::string truncateDate(std::string buffer)
+// {
+//     std::string date;
+//     for (int i = 0; buffer[i] != ','; i++)
+//     {
+//         date[i] = buffer[i];
+//     }
+//     std::cout << date << std::endl;
+//     return (date);
+// }
+
+std::string truncateDate(std::string buffer)
+{
+    std::string date;
+    int i = 0;
+    int j = 0;
+    
+    while (buffer[i])
+    {
+        if (buffer[i] == ',')
+            j = i;
+        i++;
+    }
+    i -= j;
+    date = buffer.substr(0, j);
+    std::cout << date << std::endl;
+    return date;
+}
+
+double  truncateExchangeRate(std::string buffer)
+{
+    double  exchangeRate;
+    int i = 0;
+    int j = 0;
+    while (buffer[i])
+    {
+        if (buffer[i] == ',')
+            j = i;
+        i++;
+    }
+    i -= j;
+    std::string temp = buffer.substr(j + 1, i);
+    // std::cout << temp << std::endl;
+    exchangeRate = atof(temp.c_str());
+    return exchangeRate;
+}
+
+int main(void)
+{
+    // std::map<std::string, double> test1; //string pour la date et double pour le taux de change
+    std::ifstream infile;
+    std::string     buffer;
+    std::string     date;
+    double          exchangeRate;
+    
+    infile.open("data.csv");
+    if (infile.is_open() == true)
+    {
+        while(std::getline(infile, buffer))
+        {
+            // std::cout << buffer << std::endl;
+            date = truncateDate(buffer);
+            // std::cout << date << std::cout;
+            exchangeRate = truncateExchangeRate(buffer);
+            std::cout << exchangeRate << std::endl;
+        }
+    }
+    else
+    {
+        std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
+    }
+}
