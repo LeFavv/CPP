@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/23 21:55:14 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/23 22:09:44 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,48 @@ void storeData(void)
     }
 }
 
+bool    controlDate(std::string date)
+{
+    std::string yearStr;
+    std::string monthStr;
+    std::string dayStr;
+    
+    int year;
+    int month;
+    int day;
+    int i = 0;
+    int j = 0;
+    int flag = 0; 
+    while (date[i])
+    {
+        if (date[i] == '-')
+        {
+            j = i;
+            i -= j;
+            if (flag == 0)
+                std::string yearStr = date.substr(j + 1, i);
+            else if (flag == 1)
+                std::string monthStr = date.substr(j + 1, i);
+            else if (flag == 2)
+                std::string monthStr = date.substr(j + 1, i);
+            flag++;
+        }
+            // j = i;
+        i++;
+    }
+    year = atoi(yearStr.c_str());
+    if (year <= 0 || year >= 2100)
+        return false;
+    month = atoi(monthStr.c_str());
+    if (month < 1 || month > 12)
+        return false;
+    day = atoi(dayStr.c_str());
+    if (day <= 0 || day > 31)
+        return false;
+        
+    //degrossi puis verifier en detail si la date est ok
+}
+
 void    BitcoinExchange::storing(std::string const filename)
 {
     std::map<std::string, float> test1; //string pour la date et double pour le taux de change
@@ -108,6 +150,8 @@ void    BitcoinExchange::storing(std::string const filename)
         while(std::getline(infile, buffer))
         {
             date = truncateDate(buffer);
+            if (!controlDate(date))
+                throw std::runtime_error ("Error: Bad input date");
             //test la date et throw une exception si besoin
             value = truncateExchangeRate(buffer);
             if (date != "date")
