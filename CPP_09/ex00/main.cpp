@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/18 16:23:49 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/23 21:18:55 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 
 //Pas necessaire de verifier le .csv car tout doit etre OK logiquement
 //Utiliser la meme logique pour check l'input mais pousser un peu plus la verifications des donnees (voir fichier test.txt pour les verifs a faire)
+
+//Je recupere la data je dois maintenant faire la meme chose pour l'input 
+//Bien check tousnles cas d'erreurs possibles 
+
+//infile doit etre au format date | value
+//et date doit etre au format Year-Month-Day le tout separe par des espace -- > split avec | pour avoir les deux chaines 
+//puis split la premiere chaine pour separer les trois valeurs --> faire un atol et verifier que ca colle aux dates possibles
+
+//fonction storing
 
 std::string truncateDate(std::string buffer)
 {
