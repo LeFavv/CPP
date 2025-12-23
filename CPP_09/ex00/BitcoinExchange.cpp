@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/23 22:09:44 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/23 22:15:29 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ bool    controlDate(std::string date)
                 std::string monthStr = date.substr(j + 1, i);
             flag++;
         }
-            // j = i;
         i++;
     }
     year = atoi(yearStr.c_str());
@@ -128,8 +127,7 @@ bool    controlDate(std::string date)
     day = atoi(dayStr.c_str());
     if (day <= 0 || day > 31)
         return false;
-        
-    //degrossi puis verifier en detail si la date est ok
+    //ajouter des controls plus specifiques
 }
 
 void    BitcoinExchange::storing(std::string const filename)
