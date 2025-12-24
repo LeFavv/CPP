@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/23 22:15:29 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/24 01:42:09 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,21 @@ bool    controlDate(std::string date)
     day = atoi(dayStr.c_str());
     if (day <= 0 || day > 31)
         return false;
+    int maxDay;
+    switch (month)
+    {
+        case 2:
+            //[...]
+            break;
+        case 4: case 6: case 9: case 11:
+            break;
+        default:
+        maxDay = 31;
+    }
     //ajouter des controls plus specifiques
+    //01, 03, 05, 07, 08, 10 et 12 ont 31 jours
+    //04, 06, 09 et 11 comptent 30 jours
+    //02 28 jours ou 29 si bissexctile
 }
 
 void    BitcoinExchange::storing(std::string const filename)
