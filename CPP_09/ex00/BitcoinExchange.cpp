@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/24 01:42:09 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/25 14:57:16 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,13 +131,25 @@ bool    controlDate(std::string date)
     switch (month)
     {
         case 2:
-            //[...]
+        {
+            if (year % 4 == 0)
+                maxDay = 29;
+            else 
+                maxDay = 28;
             break;
+        }
         case 4: case 6: case 9: case 11:
+        {
+            maxDay = 30;
             break;
+        }
+           
         default:
-        maxDay = 31;
+            maxDay = 31;
     }
+    if (day > maxDay)
+        return false;
+    return true;
     //ajouter des controls plus specifiques
     //01, 03, 05, 07, 08, 10 et 12 ont 31 jours
     //04, 06, 09 et 11 comptent 30 jours
@@ -163,8 +175,7 @@ void    BitcoinExchange::storing(std::string const filename)
         {
             date = truncateDate(buffer);
             if (!controlDate(date))
-                throw std::runtime_error ("Error: Bad input date");
-            //test la date et throw une exception si besoin
+                throw std::runtime_error ("Error: Bad input date" + date);
             value = truncateExchangeRate(buffer);
             if (date != "date")
                 test1.insert({date, value});
@@ -180,4 +191,3 @@ void    BitcoinExchange::storing(std::string const filename)
         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
     }
 }
-
