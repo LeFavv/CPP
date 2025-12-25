@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/25 14:57:16 by vafavard         ###   ########.fr       */
+/*   Updated: 2025/12/25 15:04:45 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,23 @@ double  truncateExchangeRate(std::string buffer)
     std::string temp = buffer.substr(j + 1, i);
     exchangeRate = atof(temp.c_str());
     return exchangeRate;
+}
+
+float  truncateValue(std::string buffer)
+{
+    double  value;
+    int i = 0;
+    int j = 0;
+    while (buffer[i])
+    {
+        if (buffer[i] == '|')
+            j = i;
+        i++;
+    }
+    i -= j;
+    std::string temp = buffer.substr(j + 1, i);
+    value = atof(temp.c_str());
+    return value;
 }
 
 void storeData(void)
@@ -191,3 +208,6 @@ void    BitcoinExchange::storing(std::string const filename)
         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
     }
 }
+
+//check les values 
+//value entre 0 et 1000 inclus (de type float)
