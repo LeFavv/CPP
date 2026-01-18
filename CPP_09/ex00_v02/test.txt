@@ -1,0 +1,10 @@
+Le programme prends un input.txt
+
+A la date concernee prends la valeur et multiplie par le taux de change a la meme date de notre tableau.csv
+Si la date est valide mais qu'il n'y a rien a ce jour, faire l'operation avec la date inferieur
+
+Verifier que la date soit valide 
+Une date ne peut pas etre superieure a la date du jour 
+(check aussi le nombre de jour par mois a chaque fois -- Annee bissexctile ?) Annee est bissexctile si elle est divisible par 4 mais par par 100 / ou bien par 400
+
+

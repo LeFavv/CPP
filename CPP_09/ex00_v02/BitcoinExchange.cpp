@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 08:42:47 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 13:04:15 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 13:49:45 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ std::string truncateDate(std::string buffer)
     }
     i -= j;
     date = buffer.substr(0, j);
-    // std::cout << date << std::endl;
     return date;
 }
 
@@ -76,7 +75,6 @@ float  truncateValue(std::string buffer)
 
 void BitcoinExchange::storeData(void)
 {
-    // std::map<std::string, float> test1; //string pour la date et double pour le taux de change
     std::ifstream infile;
     std::string     buffer;
     std::string     date;
@@ -87,28 +85,42 @@ void BitcoinExchange::storeData(void)
     {
         while(std::getline(infile, buffer))
         {
-            // std::cout << buffer << std::endl;
             date = truncateDate(buffer);
-            // std::cout << date << std::cout;
             exchangeRate = truncateExchangeRate(buffer);
-            // std::cout << exchangeRate << std::endl;
             if (date != "date")
-            {
-                // test1.insert({date, exchangeRate});
                 _rates[date] = exchangeRate;
-            }
-            // std::cout << test1 << std::endl;
         }
-        // std::map<std::string, float>::const_iterator it;
-        // for (it = test1.begin(); it != test1.end(); it++)
-        // {
-        //     std::cout << it->first << " " << it->second << std::endl;
-        // }
     }
     else
     {
         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
     }
+    infile.close();
+}
+
+void BitcoinExchange::storeInput(void)
+{
+    std::ifstream infile;
+    std::string     buffer;
+    std::string     date;
+    float          exchangeRate;
+    
+    infile.open("input.txt");
+    if (infile.is_open() == true)
+    {
+        while(std::getline(infile, buffer))
+        {
+            date = truncateDate(buffer);
+            exchangeRate = truncateValue(buffer);
+            if (date != "date")
+                _ratesValue[date] = exchangeRate;
+        }
+    }
+    else
+    {
+        std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
+    }
+    infile.close();
 }
 
 bool    dateForm(std::string date)
@@ -153,34 +165,13 @@ bool    controlDate(std::string date)
     int year;
     int month;
     int day;
-    int i = 0;
-    int j = 0;
-    int flag = 0; 
-    int len = 0;
     if (strlen(date.c_str()) != 10)
         return false;
     if (!dateForm(date))
         return false;
-    while (date[i])
-    {
-        if (date[i] == '-' || !date[i + 1])
-        {
-            if (flag == 0)
-            {
-                yearStr = date.substr(0, len);
-            }
-            else if (flag == 1)
-            {
-                monthStr = date.substr(i - len , len);
-            }
-            else if (flag == 2)
-                dayStr = date.substr(i - len, len);
-            flag++;
-            len = 0;
-        }
-        i++;
-        len++;
-    }
+    yearStr = date.substr(0, 4);
+    monthStr = date.substr(5, 2);
+    dayStr = date.substr(8, 2);
     year = atoi(yearStr.c_str());
     if (year <= 0 || year >= 2100)
         return false;
@@ -219,41 +210,41 @@ bool    controlDate(std::string date)
     //02 28 jours ou 29 si bissexctile
 }
 
-void    BitcoinExchange::storing(std::string const filename)
-{
-    std::map<std::string, float> test1; //string pour la date et double pour le taux de change
-    std::ifstream infile;
-    std::string     buffer;
-    std::string     date;
-    std::string     valueStr;
-    float           value;
-    int             Year;
-    int             Month;
-    int             Day;
+// void    BitcoinExchange::storing(std::string const filename)
+// {
+//     std::map<std::string, float> test1; //string pour la date et double pour le taux de change
+//     std::ifstream infile;
+//     std::string     buffer;
+//     std::string     date;
+//     std::string     valueStr;
+//     float           value;
+//     int             Year;
+//     int             Month;
+//     int             Day;
     
-    infile.open(filename.c_str());
-    if (infile.is_open() == true)
-    {
-        while(std::getline(infile, buffer))
-        {
-            date = truncateDate(buffer);
-            if (!controlDate(date))
-                throw std::runtime_error ("Error: Bad input date" + date);
-            value = truncateExchangeRate(buffer);
-            if (date != "date")
-                test1.insert({date, value});
-        }
-        std::map<std::string, float>::const_iterator it;
-        for (it = test1.begin(); it != test1.end(); it++)
-        {
-            std::cout << it->first << " " << it->second << std::endl;
-        }
-    }
-    else
-    {
-        std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
-    }
-}
+//     infile.open(filename.c_str());
+//     if (infile.is_open() == true)
+//     {
+//         while(std::getline(infile, buffer))
+//         {
+//             date = truncateDate(buffer);
+//             if (!controlDate(date))
+//                 throw std::runtime_error ("Error: Bad input date" + date);
+//             value = truncateExchangeRate(buffer);
+//             if (date != "date")
+//                 test1.insert({date, value});
+//         }
+//         std::map<std::string, float>::const_iterator it;
+//         for (it = test1.begin(); it != test1.end(); it++)
+//         {
+//             std::cout << it->first << " " << it->second << std::endl;
+//         }
+//     }
+//     else
+//     {
+//         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
+//     }
+// }
 
 //check les values 
 //value entre 0 et 1000 inclus (de type float)
