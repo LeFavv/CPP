@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 13:36:08 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 15:42:38 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,52 @@
 
 //fonction storing
 
-int main(void)
+// int main(void)
+// {
+//     std::map<std::string, float> test1; //string pour la date et double pour le taux de change
+//     std::ifstream infile;
+//     std::string     buffer;
+//     std::string     date;
+//     double          exchangeRate;
+    
+//     infile.open("data.csv");
+//     if (infile.is_open() == true)
+//     {
+//         while(std::getline(infile, buffer))
+//         {
+//             date = truncateDate(buffer);
+//             exchangeRate = truncateExchangeRate(buffer);
+//             if (date != "date")
+//                 test1.insert({date, exchangeRate});
+//         }
+//         std::map<std::string, float>::const_iterator it;
+//         for (it = test1.begin(); it != test1.end(); it++)
+//         {
+//             std::cout << it->first << " " << it->second << std::endl;
+//         }
+//     }
+//     else
+//     {
+//         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
+//     }
+    
+// }
+
+int main(int argc, char **argv)
 {
-    std::map<std::string, float> test1; //string pour la date et double pour le taux de change
-    std::ifstream infile;
-    std::string     buffer;
-    std::string     date;
-    double          exchangeRate;
-    
-    infile.open("data.csv");
-    if (infile.is_open() == true)
-    {
-        while(std::getline(infile, buffer))
-        {
-            date = truncateDate(buffer);
-            exchangeRate = truncateExchangeRate(buffer);
-            if (date != "date")
-                test1.insert({date, exchangeRate});
-        }
-        std::map<std::string, float>::const_iterator it;
-        for (it = test1.begin(); it != test1.end(); it++)
-        {
-            std::cout << it->first << " " << it->second << std::endl;
-        }
-    }
-    else
-    {
-        std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
-    }
-    
+	if (argc != 2)
+	{
+		std::cout << "Error: filename excepted" << std::endl;
+		return (1);
+	}
+
+	try
+	{
+		std::string filename(argv[1]);
+		BitcoinExchange::storeInput(filename);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }

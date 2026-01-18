@@ -6,12 +6,12 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:09 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 13:48:42 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 15:56:19 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
-#define BITCOINEXHCANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
 #include <string>
@@ -23,11 +23,13 @@ class BitcoinExchange
 {
 public:
         // void    storing(std::string const filename);
-        void    storeData(void);
-        void    storeInput(void);
+        static void    storeData(void);
+       static void    storeInput(std::string str);
+        
 private:
-        std::map<std::string, float> _rates;
-        std::map<std::string, float> _ratesValue;
+        static std::map<std::string, float> _rates;
+        static std::map<std::string, float> _ratesValue;
+        
         BitcoinExchange(void);
         BitcoinExchange(BitcoinExchange const &copy);
         BitcoinExchange &operator=(BitcoinExchange const &src);
@@ -42,4 +44,3 @@ bool    controlDate(std::string date);
 
 
 #endif
-

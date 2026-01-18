@@ -6,12 +6,15 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 08:42:47 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 13:49:45 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 15:58:12 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <string.h>
+
+std::map<std::string, float> BitcoinExchange::_rates;
+std::map<std::string, float> BitcoinExchange::_ratesValue;
 
 BitcoinExchange::BitcoinExchange(void){};
 
@@ -98,14 +101,14 @@ void BitcoinExchange::storeData(void)
     infile.close();
 }
 
-void BitcoinExchange::storeInput(void)
+void BitcoinExchange::storeInput(std::string str)
 {
     std::ifstream infile;
     std::string     buffer;
     std::string     date;
     float          exchangeRate;
     
-    infile.open("input.txt");
+    infile.open(str.c_str());
     if (infile.is_open() == true)
     {
         while(std::getline(infile, buffer))
