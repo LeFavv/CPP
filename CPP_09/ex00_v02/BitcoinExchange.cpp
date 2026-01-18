@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 08:42:47 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 15:58:12 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:09:54 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,23 @@ std::string truncateDate(std::string buffer)
     }
     i -= j;
     date = buffer.substr(0, j);
+    return date;
+}
+
+std::string truncateDateValue(std::string buffer)
+{
+    std::string date;
+    int i = 0;
+    int j = 0;
+    
+    while (buffer[i])
+    {
+        if (buffer[i] == '|')
+            j = i;
+        i++;
+    }
+    i -= j;
+    date = buffer.substr(0, j - 1);
     return date;
 }
 
@@ -101,30 +118,89 @@ void BitcoinExchange::storeData(void)
     infile.close();
 }
 
+// void BitcoinExchange::storeInput(std::string str)
+// {
+//     std::ifstream infile;
+//     std::string     buffer;
+//     std::string     date;
+//     float          exchangeRate;
+    
+//     infile.open(str.c_str());
+//     if (infile.is_open() == true)
+//     {
+//         while(std::getline(infile, buffer))
+//         {
+//             date = truncateDate(buffer);
+//             exchangeRate = truncateValue(buffer);
+//             if (date != "date")
+//                 _ratesValue[date] = exchangeRate;
+//         }
+//         std::map<std::string, float>::const_iterator it;
+//         for (it = _ratesValue.begin(); it != _ratesValue.end(); it++)
+//         {
+//             std::cout << it->first << " " << it->second << std::endl;
+//         }
+//     }
+//     else
+//     {
+//         std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
+//     }
+//     infile.close();
+// }
+
 void BitcoinExchange::storeInput(std::string str)
 {
-    std::ifstream infile;
-    std::string     buffer;
-    std::string     date;
-    float          exchangeRate;
-    
-    infile.open(str.c_str());
-    if (infile.is_open() == true)
+    std::ifstream infile(str.c_str());
+    std::string buffer;
+    std::string date;
+    float value;
+
+    storeData();
+    if (!infile)
+        throw std::runtime_error("Error: could not open file.");
+
+    std::getline(infile, buffer); // skip header
+
+    while (std::getline(infile, buffer))
     {
-        while(std::getline(infile, buffer))
+        date = truncateDateValue(buffer);
+        value = truncateValue(buffer);
+
+        if (!controlDate(date))
         {
-            date = truncateDate(buffer);
-            exchangeRate = truncateValue(buffer);
-            if (date != "date")
-                _ratesValue[date] = exchangeRate;
+            // std::cout << date << std::endl;
+            std::cout << "Error: bad input => " << date << std::endl;
+            continue;
         }
+
+        if (value < 0)
+        {
+            std::cout << "Error: not a positive number." << std::endl;
+            continue;
+        }
+        if (value > 1000)
+        {
+            std::cout << "Error: too large a number." << std::endl;
+            continue;
+        }
+
+        std::map<std::string, float>::iterator it = _rates.lower_bound(date);
+
+        if (it == _rates.end() || it->first != date)
+        {
+            if (it == _rates.begin())
+            {
+                std::cout << "Error: no rate available." << std::endl;
+                continue;
+            }
+            --it;
+        }
+
+        float result = value * it->second;
+        std::cout << date << " => " << value << " = " << result << std::endl;
     }
-    else
-    {
-        std::cerr << "ERROR CANNOT OPEN FILE" << std::endl;
-    }
-    infile.close();
 }
+
 
 bool    dateForm(std::string date)
 {
@@ -169,21 +245,42 @@ bool    controlDate(std::string date)
     int month;
     int day;
     if (strlen(date.c_str()) != 10)
+    {
+        std::cout << strlen(date.c_str()) << "|" << std::endl;
+        std::cout << "ici" << std::endl;
         return false;
+    }
+        // return false;
     if (!dateForm(date))
+    {
+        std::cout << "la" << std::endl;
         return false;
+    }
+        // return false;
     yearStr = date.substr(0, 4);
     monthStr = date.substr(5, 2);
     dayStr = date.substr(8, 2);
     year = atoi(yearStr.c_str());
     if (year <= 0 || year >= 2100)
+    {
+        std::cout << "1" << std::endl;
         return false;
+    }
+        // return false;
     month = atoi(monthStr.c_str());
     if (month < 1 || month > 12)
+    {
+        std::cout << "2" << std::endl;
         return false;
+    }
+        // return false;
     day = atoi(dayStr.c_str());
     if (day <= 0 || day > 31)
+    {
+        std::cout << "3" << std::endl;
         return false;
+    }
+        // return false;
     int maxDay;
     switch (month)
     {
@@ -205,7 +302,11 @@ bool    controlDate(std::string date)
             maxDay = 31;
     }
     if (day > maxDay)
+    {
+        std::cout << "4" << std::endl;
         return false;
+    }
+        // return false;
     return true;
     //ajouter des controls plus specifiques
     //01, 03, 05, 07, 08, 10 et 12 ont 31 jours
