@@ -6,11 +6,12 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 08:42:47 by vafavard          #+#    #+#             */
-/*   Updated: 2026/01/18 09:06:10 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:05:06 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <string.h>
 
 BitcoinExchange::BitcoinExchange(void){};
 
@@ -107,6 +108,39 @@ void storeData(void)
     }
 }
 
+bool    dateForm(std::string date)
+{
+    int i = 0;
+    while (i < 4)
+    {
+        if (isdigit(date[i]))
+            i++;
+        else
+            return (false);
+    }
+    if (date[4] != '-')
+        return false;
+    i++;
+    while (i < 7)
+    {
+        if (isdigit(date[i]))
+            i++;
+        else
+            return (false);
+    }
+    if (date[7] != '-')
+        return false;
+    i++;
+    while (i < 10)
+    {
+        if (isdigit(date[i]))
+            i++;
+        else
+            return (false);
+    }
+    return true;
+}
+
 bool    controlDate(std::string date)
 {
     std::string yearStr;
@@ -119,21 +153,31 @@ bool    controlDate(std::string date)
     int i = 0;
     int j = 0;
     int flag = 0; 
+    int len = 0;
+    if (strlen(date.c_str()) != 10)
+        return false;
+    //tester si bien au format YYYY-MM-DD
+    if (!dateForm(date))
+        return false;
     while (date[i])
     {
-        if (date[i] == '-')
+        if (date[i] == '-' || !date[i + 1])
         {
-            j = i;
-            i -= j;
             if (flag == 0)
-                std::string yearStr = date.substr(j + 1, i);
+            {
+                yearStr = date.substr(0, len);
+            }
             else if (flag == 1)
-                std::string monthStr = date.substr(j + 1, i);
+            {
+                monthStr = date.substr(i - len , len);
+            }
             else if (flag == 2)
-                std::string monthStr = date.substr(j + 1, i);
+                dayStr = date.substr(i - len, len);
             flag++;
+            len = 0;
         }
         i++;
+        len++;
     }
     year = atoi(yearStr.c_str());
     if (year <= 0 || year >= 2100)
