@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 13:02:06 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/25 15:04:45 by vafavard         ###   ########.fr       */
+/*   Created: 2026/01/18 08:42:47 by vafavard          #+#    #+#             */
+/*   Updated: 2026/01/18 09:06:10 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy){}
 
 BitcoinExchange::~BitcoinExchange(void){};
 
-BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &src){};
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &src){return *this;};
 
 
 std::string truncateDate(std::string buffer)
@@ -211,3 +211,5 @@ void    BitcoinExchange::storing(std::string const filename)
 
 //check les values 
 //value entre 0 et 1000 inclus (de type float)
+
+//Je recupere le tableau d'input et le stock

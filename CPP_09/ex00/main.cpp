@@ -6,7 +6,7 @@
 /*   By: vafavard <vafavard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 13:02:12 by vafavard          #+#    #+#             */
-/*   Updated: 2025/12/23 21:18:55 by vafavard         ###   ########.fr       */
+/*   Updated: 2026/01/18 09:16:51 by vafavard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <map>
 #include <fstream>
+#include "BitcoinExchange.hpp"
 
 //Pas necessaire de verifier le .csv car tout doit etre OK logiquement
 //Utiliser la meme logique pour check l'input mais pousser un peu plus la verifications des donnees (voir fichier test.txt pour les verifs a faire)
@@ -28,40 +29,40 @@
 
 //fonction storing
 
-std::string truncateDate(std::string buffer)
-{
-    std::string date;
-    int i = 0;
-    int j = 0;
+// std::string truncateDate(std::string buffer)
+// {
+//     std::string date;
+//     int i = 0;
+//     int j = 0;
     
-    while (buffer[i])
-    {
-        if (buffer[i] == ',')
-            j = i;
-        i++;
-    }
-    i -= j;
-    date = buffer.substr(0, j);
-    // std::cout << date << std::endl;
-    return date;
-}
+//     while (buffer[i])
+//     {
+//         if (buffer[i] == ',')
+//             j = i;
+//         i++;
+//     }
+//     i -= j;
+//     date = buffer.substr(0, j);
+//     // std::cout << date << std::endl;
+//     return date;
+// }
 
-double  truncateExchangeRate(std::string buffer)
-{
-    double  exchangeRate;
-    int i = 0;
-    int j = 0;
-    while (buffer[i])
-    {
-        if (buffer[i] == ',')
-            j = i;
-        i++;
-    }
-    i -= j;
-    std::string temp = buffer.substr(j + 1, i);
-    exchangeRate = atof(temp.c_str());
-    return exchangeRate;
-}
+// double  truncateExchangeRate(std::string buffer)
+// {
+//     double  exchangeRate;
+//     int i = 0;
+//     int j = 0;
+//     while (buffer[i])
+//     {
+//         if (buffer[i] == ',')
+//             j = i;
+//         i++;
+//     }
+//     i -= j;
+//     std::string temp = buffer.substr(j + 1, i);
+//     exchangeRate = atof(temp.c_str());
+//     return exchangeRate;
+// }
 
 int main(void)
 {
